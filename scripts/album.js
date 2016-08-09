@@ -29,6 +29,21 @@ var albumPicasso = {
      ]
  };
 
+var albumJuturna = {
+    title: 'Juturna',
+    artist: 'Circa Survive',
+    label: 'Equal Vision',
+    year: '2005',
+    albumArtUrl: 'assets/images/album_covers/18.png',
+    songs: [
+        {title: 'Holding Someones Hair Back', duration: '4:27'},
+        {title: 'Stop the Car', duration: '3:23'},
+        {title: 'Act Appalled', duration: '2:58'},
+        {title: 'The Great Golden Baby', duration: '6:66'},
+        {title: 'Meet Me In Montauk', duration: '9:34'}
+    ]
+}
+
 var createSongRow = function (songNumber, songName, songLength) {
     var template = 
       '<tr class="album-view-song-item">'
@@ -63,3 +78,22 @@ var setCurrentAlbum = function(album) {
 window.onload = function() {
     setCurrentAlbum(albumPicasso);
 };
+
+
+var albumIndex = 0;
+var albums = [albumPicasso, albumMarconi, albumJuturna];
+
+function albumToggle() {
+    albumIndex += 1;
+    if (albumIndex > albums.length-1) {
+    albumIndex = 0;
+    }
+    setCurrentAlbum(albums[albumIndex])
+}
+
+
+var albumCovers = document.getElementsByClassName('album-cover-art');
+console.log(albumCovers);
+
+
+albumCovers[0].addEventListener('click', albumToggle);
