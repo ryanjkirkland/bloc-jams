@@ -69,7 +69,6 @@ body.album {
      display: inline-block;
      width: 28px;
      height: 28px;
-     vertical-align: middle;
  }
  
  .album-song-button:hover {
