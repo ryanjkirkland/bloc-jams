@@ -210,14 +210,10 @@ var setTotalTimeInPlayerBar = function(totalTime) {
 var filterTimeCode = function(timeInSeconds) {
     var newTime = parseFloat(timeInSeconds);
     var timeInMinutes = Math.floor(newTime/60);
-    var leftoverSeconds = Math.floor(newTime%60);
+    var leftoverSeconds = String(Math.floor(newTime%60));
     
     if (leftoverSeconds.length < 2) {
         leftoverSeconds = "0" + leftoverSeconds;
-    }
-    
-    if (timeInMinutes.lengh < 2) {
-        timeInMinutes = "0" + timeInMinutes;
     }
     
     return timeInMinutes + ":" + leftoverSeconds;
@@ -301,7 +297,7 @@ var updatePlayerBarSong = function() {
     $('.currently-playing .artist-name').text(currentAlbum.artist);
     
     $('.main-controls .play-pause').html(playerBarPauseButton);
-    setTotalTimeInPlayerBar(currentAlbum.songs.duration);
+    setTotalTimeInPlayerBar(currentSongFromAlbum.duration);
 };
 
 var playButtonTemplate = '<a class="album-song-button"><span class="ion-play"></span></a>';
